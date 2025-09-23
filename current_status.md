@@ -10,16 +10,16 @@ The analysis reveals significant discrepancies between the current fetching scri
 ## Current Script Status
 
 ### 1. `fetch_findings.py` (GraphQL-based script)
-- **Status:** ❌ **FAILING** - DNS resolution errors
-- **API Endpoint:** `https://api.ox.security/graphql`
-- **Error:** `Failed to resolve 'api.ox.security'`
-- **Last Successful Run:** Unknown (logs show consistent failures)
+- **Status:** ✅ **WORKING** - Fixed API URL configuration
+- **API Endpoint:** `https://api.cloud.ox.security/api/apollo-gateway`
+- **Last Successful Run:** September 23, 2025
+- **Findings:** Successfully fetching 10 security issues (8 Secret, 1 Infrastructure, 1 Other)
 
 ### 2. `fetch_sca_findings.py` (REST API-based script)
-- **Status:** ❌ **FAILING** - DNS resolution errors  
-- **API Endpoint:** `https://api.ox.security`
-- **Error:** `Failed to resolve 'api.ox.security'`
-- **Last Successful Run:** Unknown (logs show consistent failures)
+- **Status:** ⚠️ **PARTIAL** - API URL fixed but authentication failing
+- **API Endpoint:** `https://api.cloud.ox.security/api/apollo-gateway`
+- **Error:** 401 Authentication failed (REST API may not be available)
+- **Last Successful Run:** N/A (GraphQL endpoint is working instead)
 
 ## UI Exported Data Analysis
 
