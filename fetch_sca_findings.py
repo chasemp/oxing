@@ -71,8 +71,11 @@ class OxSecuritySCAFetcher:
         if not self.api_key:
             config = self._load_config(config_file)
             self.api_key = config.get('api_key') or os.getenv('OX_SECURITY_API_KEY')
-            if not self.api_url:
-                self.api_url = config.get('api_url', self.api_url)
+        
+        # Always load API URL from config if available
+        config = self._load_config(config_file)
+        if config.get('api_url'):
+            self.api_url = config.get('api_url')
         
         if not self.api_key:
             raise ValueError("Ox Security API key must be provided via parameter, config file, or OX_SECURITY_API_KEY environment variable")
